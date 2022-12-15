@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.postCard {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+    gap: 15px;
+    border-radius: 1%;
+}
+
+.postCardBox h2 {
+    padding-bottom: 15px;
+}
+
+.postCardBox {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 25px;
+}
+
+.messageBtn {
+    background-color: transparent;
+    color: rgb(41, 41, 122);
+    border: rgb(41, 41, 122) 2px solid;
+    width: 150px;
+    height: 50px;
+    transition: all .2s;
+}
+
+.messageBtn:hover {
+    color: white;
+    background-color: rgb(41, 41, 122);
+    transform: scale(1.05);
+}
+
+.title {
+    padding-left: 30px;
+    padding-top: 30px;
+}
