@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './login.css';
+import Header from './Header';
+import { Link } from 'react-router-dom';
+
 
 
 const Register = () => {
@@ -37,16 +40,17 @@ const Register = () => {
     }
 
     return <>
+        <Header />
         <div id='container'>
             <h1>Register:</h1>
             <div id='navbar'>
             </div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor='username'>Username:</label>
-                <input type='text' name='username' value={username} onChange={handleChangeName} />
-                <label htmlFor='password'>Password:</label>
-                <input type='password' name='password' value={password} onChange={handleChangePassword} />
-                <button type='submit'>Register</button>
+                <input type='text' name='username' value={username} onChange={handleChangeName} placeholder=' Username*' />
+                <input type='password' name='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
+                <input type='password' name='password' value={password} onChange={handleChangePassword} placeholder=' Confirm Password*' />
+                <button type='submit'>Log In</button>
+                <Link to="/register">Don't have an account? Sign Up</Link>
             </form>
         </div>
     </>

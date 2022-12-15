@@ -1,0 +1,47 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(22, 35, 59);
+    height: 60px;
+    color: white;
+}
+
+.AppName {
+    margin-left: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.listBox {
+    display: flex;
+    gap: 35px;
+    margin-right: 40px;
+    list-style: none;
+}
+
+.links {
+    display: inline-block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    color: #ffffff;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.links:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.links:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}

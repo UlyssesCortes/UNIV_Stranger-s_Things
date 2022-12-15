@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Header from './Header';
 
 const Posts = () => {
     const [posts, setPosts] = useState([])
@@ -13,6 +14,8 @@ const Posts = () => {
     }, [])
 
     return <>
+        <Header />
+
         <h1 className='title'> Posts: </h1>
         <div className='postCardBox'>
             {
