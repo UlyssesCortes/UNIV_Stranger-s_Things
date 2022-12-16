@@ -9,15 +9,17 @@ const LogIn = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [token, setToken] = useState('');
-    console.log('username', username);
-    console.log('password', password);
-    console.log('token', token);
+    const [myPosts, setMyPosts] = useState([]);
+    const [message, setMessage] = useState([]);
+    const [id, setId] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedOut, setIsLoggedOut] = useState(true)
 
 
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/login', {
+        await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/login', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -30,27 +32,38 @@ const LogIn = () => {
             })
         }).then(response => response.json())
             .then(result => {
-                setToken(result.data.token)
-                console.log(result);
+                setToken(result?.data?.token)
+                setIsLoggedIn(true)
+                window.localStorage.setItem('token', token)
+                // console.log(result);
             })
             .catch(console.error)
 
+        if (token) {
+            fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+            }).then(response => response.json())
+                .then(result => {
+                    console.log(result);
+                    setMessage(result?.data?.messages)
+                    setId(result?.data?._id)
+                    setMyPosts(result?.data?.posts)
 
-        fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        }).then(response => response.json())
-            .then(result => {
-                console.log(result);
-                console.log(token)
-            })
-            .catch(console.error);
+                    if (message && id && myPosts) {
+                        console.log("Messages", message)
+                        console.log("Id", id)
+                        console.log("Posts", myPosts)
+                    }
 
+                })
+                .catch(console.error);
+        }
         // setUsername('')
         // setPassword('')
-        console.log(token)
+        // console.log(token)
     }
 
     const handleChangeName = (event) => {
@@ -62,7 +75,7 @@ const LogIn = () => {
     }
 
     return <>
-        <Header />
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
         <div id='container'>
             <h1>Login:</h1>
             <div id='navbar'>
@@ -75,7 +88,6 @@ const LogIn = () => {
             </form>
         </div>
     </>
-
 }
 
 export default LogIn

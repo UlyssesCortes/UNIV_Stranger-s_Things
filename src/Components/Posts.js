@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Header';
 
+
+
 const Posts = () => {
     const [posts, setPosts] = useState([])
 
@@ -15,11 +17,10 @@ const Posts = () => {
 
     return <>
         <Header />
-
         <h1 className='title'> Posts: </h1>
         <div className='postCardBox'>
             {
-                posts && posts.map(post => <div className='postCard' key={post.id}>
+                posts && posts.map(post => <div className='postCard' key={post._id}>
                     <h2>{"Title: " + post.title}</h2>
                     <p>{post.description}</p>
                     <p><strong>Price: </strong>{post.price}</p>
@@ -30,7 +31,6 @@ const Posts = () => {
                 )
             }
         </div>
-
     </>
 }
 
