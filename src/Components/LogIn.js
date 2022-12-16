@@ -13,7 +13,7 @@ const LogIn = () => {
     const [message, setMessage] = useState([]);
     const [id, setId] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const [isLoggedOut, setIsLoggedOut] = useState(true)
+    // const [isLoggedOut, setIsLoggedOut] = useState(true)
 
 
     const handleSubmit = async (event) => {
@@ -35,6 +35,7 @@ const LogIn = () => {
                 setToken(result?.data?.token)
                 setIsLoggedIn(true)
                 window.localStorage.setItem('token', token)
+
                 // console.log(result);
             })
             .catch(console.error)
@@ -49,8 +50,8 @@ const LogIn = () => {
                 .then(result => {
                     console.log(result);
                     setMessage(result?.data?.messages)
-                    setId(result?.data?._id)
-                    setMyPosts(result?.data?.posts)
+                    setId(result.data._id)
+                    setMyPosts(result.data.posts)
 
                     if (message && id && myPosts) {
                         console.log("Messages", message)
