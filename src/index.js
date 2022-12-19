@@ -13,16 +13,16 @@ import Logout from './Components/Logout';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [token, setToken] = useState('');
-
-
+  const [username, setUsername] = useState('');
+  
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path='/home' element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/posts' element={<Posts isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path='/login' element={<LogIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} token={token} />} />
-          <Route path='/profile' element={<Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path='/login' element={<LogIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} token={token} username={username} setUsername={setUsername} />} />
+          <Route path='/profile' element={<Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={token}/>} />
           <Route path='/register' element={<Register />} />
           <Route path='/' element={<LogIn token={token} setToken={setToken} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/logout' element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />

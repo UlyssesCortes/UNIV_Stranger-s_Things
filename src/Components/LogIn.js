@@ -4,9 +4,8 @@ import Header from './Header';
 import { Link } from 'react-router-dom';
 
 
-const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken }) => {
+const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUsername }) => {
 
-    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [myPosts, setMyPosts] = useState([]);
     const [message, setMessage] = useState([]);
@@ -37,8 +36,8 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken }) => {
             .catch(console.error)
 
         if (token) {
-            window.localStorage.setItem('token', token)
-            window.localStorage.setItem('loggedIn', isLoggedIn)
+            // window.localStorage.setItem('token', token)
+            // window.localStorage.setItem('loggedIn', isLoggedIn)
             setIsLoggedIn(true)
             console.log(isLoggedIn);
         }
