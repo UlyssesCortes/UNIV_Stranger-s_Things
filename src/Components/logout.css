@@ -1,25 +1,64 @@
-.alert {    
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.alertGreen {
+  padding: 20px;
+  background-color: #146b23;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.containerAlert {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-animation: cssAnimation 4s forwards;
+  animation: cssAnimation 4s forwards;
+}
+
+@keyframes cssAnimation {
+  0% {
+    opacity: 1;
   }
-.alertGreen {    
-    padding: 20px;
-    background-color: #146b23;
-    color: white;
+
+  90% {
+    opacity: 1;
   }
-  
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
+
+  100% {
+    opacity: 0;
   }
-  
-  .closebtn:hover {
-    color: black;
+}
+
+@-webkit-keyframes cssAnimation {
+  0% {
+    opacity: 1;
   }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

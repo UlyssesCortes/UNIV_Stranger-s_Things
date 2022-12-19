@@ -10,8 +10,23 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
     const [myPosts, setMyPosts] = useState([]);
     const [message, setMessage] = useState([]);
     const [id, setId] = useState('');
-    // const [isLoggedOut, setIsLoggedOut] = useState(true)
+    const [info, setInfo] = useState(false);
 
+    const loggedInAlert = () => {
+        return (
+            <div class="alertGreen">
+                <strong>Logged In!</strong>
+            </div>
+        )
+    }
+
+    const wrongUserAlert = () => {
+        return (
+            <div class="alert">
+                <strong>Wrong Usertname or Password!</strong>
+            </div>
+        )
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -31,7 +46,7 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
         }).then(response => response.json())
             .then(result => {
                 setToken(result?.data?.token)
-                // console.log(result);
+
             })
             .catch(console.error)
 
@@ -59,6 +74,11 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
                     console.log("Id", id)
                     console.log("Posts", myPosts)
                 }
+                if (result.success) {
+                    setInfo(false)
+                } else {
+                    setInfo(true)
+                }
             })
             .catch(console.error);
     }
@@ -76,6 +96,9 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
         <div id='container'>
             <h1>Login:</h1>
             <div id='navbar'>
+                <div className='container'> {wrongUserAlert() && !info}</div>
+                <div className='container'> {loggedInAlert() && isLoggedIn}</div>
+
             </div>
             <form onSubmit={handleSubmit}>
                 <input type='text' name='username' value={username} onChange={handleChangeName} placeholder=' Username*' />

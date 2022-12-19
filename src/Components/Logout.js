@@ -7,11 +7,11 @@ const Logout = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const alert = () => {
-    setIsLoggedIn(false)
+        setIsLoggedIn(false)
         return (
             <div class="alert">
-            <strong>Logged Out!</strong>
-          </div>
+                <strong>Logged Out!</strong>
+            </div>
         )
     }
 
@@ -21,9 +21,9 @@ const Logout = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
             <h1>Logout:</h1>
             <div id='navbar'>
             </div>
-                <button type='button' onClick={() => setIsOpen(!isOpen) }>Log Out</button>
-                <div className='container'> {isOpen && alert()}</div>
+            <button type='button' onClick={() => setIsOpen(!isOpen)}>Log Out</button>
         </div>
+        <div className='containerAlert'> {isOpen && alert()}</div>
     </>
 }
 

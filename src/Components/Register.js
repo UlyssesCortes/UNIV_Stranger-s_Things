@@ -3,38 +3,35 @@ import './login.css';
 import Header from './Header';
 import { Link } from 'react-router-dom';
 
-
-
-
 const Register = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordVerification, setPasswordVerification] = useState('');
-    const [invalid, setInvalid] = useState(false)
-    const [valid, setValid] = useState(false)
-    const [userNameTaken, setUserNameTaken] = useState(false)
+    const [invalid, setInvalid] = useState(false);
+    const [valid, setValid] = useState(false);
+    const [userNameTaken, setUserNameTaken] = useState(false);
 
     const invalidPasswordAlert = () => {
-            return (
-                <div class="alert">
+        return (
+            <div class="alert">
                 <strong>Invalid Username or Password!</strong>
-              </div>
-            )
-        }
+            </div>
+        )
+    }
+
     const validPasswordAlert = () => {
-            return (
-                <div class="alertGreen">
+        return (
+            <div class="alertGreen">
                 <strong>Registered Succesfully!</strong>
-              </div>
-            )
-        }
-        
+            </div>
+        )
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-          fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/register', {
+        fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/register', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -45,31 +42,29 @@ const Register = () => {
                     password: `${password}`
                 }
             })
-        }).then(response =>  response.json())
-            .then ( result => {
+        }).then(response => response.json())
+            .then(result => {
                 console.log(result);
                 console.log(result.error.name === 'UserExists');
-                if(result.error.name){
+                if (result.error.name) {
                     setUserNameTaken(true)
                     console.log(userNameTaken)
                 }
             })
             .catch(console.log(userNameTaken))
-            
-            
-            
-            if(password === passwordVerification && !userNameTaken){
+
+        if (password === passwordVerification && !userNameTaken) {
             setInvalid(false)
             setValid(true)
             setPassword(password)
             setUsername(username)
-            }else{
+        } else {
             setInvalid(true)
             setValid(false)
             setPassword("")
             setPasswordVerification("")
             setUsername("")
-            }    
+        }
     }
 
     const handleChangeName = (event) => {
@@ -90,8 +85,8 @@ const Register = () => {
             <div id='navbar'>
             </div>
             <form onSubmit={handleSubmit}>
-            <div className='container'> {invalid && invalidPasswordAlert()}</div>
-            <div className='container'> {valid && validPasswordAlert()}</div>
+                <div className='container'> {invalid && invalidPasswordAlert()}</div>
+                <div className='container'> {valid && validPasswordAlert()}</div>
                 <input type='text' name='username' value={username} onChange={handleChangeName} placeholder=' Username*' />
                 <input type='password' name='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
                 <input type='password' name='password' value={passwordVerification} onChange={handleChangePasswordVerification} placeholder=' Confirm Password*' />
@@ -100,7 +95,6 @@ const Register = () => {
             </form>
         </div>
     </>
-
 }
 
 export default Register
