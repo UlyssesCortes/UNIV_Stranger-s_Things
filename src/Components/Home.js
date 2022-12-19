@@ -2,10 +2,12 @@ import React from 'react';
 import Header from './Header';
 
 
-const Home = () => {
+const Home = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
     return (
         <>
-            <Header />
+            {console.log("Logged in home?", isLoggedIn)}
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
+
             <h1>Home</h1>
         </>
     )

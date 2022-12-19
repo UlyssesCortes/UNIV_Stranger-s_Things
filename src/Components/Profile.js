@@ -2,10 +2,10 @@ import React from "react";
 import Header from './Header';
 
 
-const Profile = () => {
+const Profile = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
     return (
         <>
-            <Header />
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
             <h1>Profile</h1>
         </>
     )

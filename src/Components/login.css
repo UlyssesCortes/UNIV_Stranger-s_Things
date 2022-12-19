@@ -61,6 +61,21 @@ form button {
     outline: none;
 }
 
+button {
+    padding: 1em 2em;
+    background-color: #59A9C2;
+    color: white;
+    border: none;
+    font-size: 1em;
+    transition: all 1s ease;
+    outline: none; 
+}
+
+button:hover {
+    background-color: #65878F;
+
+}
+
 form button:hover {
     background-color: #65878F;
 }

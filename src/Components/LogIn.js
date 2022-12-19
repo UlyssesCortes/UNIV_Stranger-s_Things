@@ -4,22 +4,21 @@ import Header from './Header';
 import { Link } from 'react-router-dom';
 
 
-const LogIn = () => {
+const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken }) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [token, setToken] = useState('');
     const [myPosts, setMyPosts] = useState([]);
     const [message, setMessage] = useState([]);
     const [id, setId] = useState('');
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
     // const [isLoggedOut, setIsLoggedOut] = useState(true)
 
 
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/login', {
+        console.log("Log in clicked")
+        fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/login', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -33,38 +32,36 @@ const LogIn = () => {
         }).then(response => response.json())
             .then(result => {
                 setToken(result?.data?.token)
-                setIsLoggedIn(true)
-                window.localStorage.setItem('token', token)
-
                 // console.log(result);
             })
             .catch(console.error)
 
         if (token) {
-            fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-            }).then(response => response.json())
-                .then(result => {
-                    console.log(result);
-                    setMessage(result?.data?.messages)
-                    setId(result.data._id)
-                    setMyPosts(result.data.posts)
-
-                    if (message && id && myPosts) {
-                        console.log("Messages", message)
-                        console.log("Id", id)
-                        console.log("Posts", myPosts)
-                    }
-
-                })
-                .catch(console.error);
+            window.localStorage.setItem('token', token)
+            window.localStorage.setItem('loggedIn', isLoggedIn)
+            setIsLoggedIn(true)
+            console.log(isLoggedIn);
         }
-        // setUsername('')
-        // setPassword('')
-        // console.log(token)
+
+        fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        }).then(response => response.json())
+            .then(result => {
+                console.log(result);
+                setMessage(result?.data?.messages)
+                setId(result.data._id)
+                setMyPosts(result.data.posts)
+
+                if (message && id && myPosts) {
+                    console.log("Messages", message)
+                    console.log("Id", id)
+                    console.log("Posts", myPosts)
+                }
+            })
+            .catch(console.error);
     }
 
     const handleChangeName = (event) => {

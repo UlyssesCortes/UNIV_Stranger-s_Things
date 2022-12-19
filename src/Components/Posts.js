@@ -3,7 +3,7 @@ import Header from './Header';
 
 
 
-const Posts = () => {
+const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const Posts = () => {
     }, [])
 
     return <>
-        <Header />
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
         <h1 className='title'> Posts: </h1>
         <div className='postCardBox'>
             {

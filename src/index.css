@@ -25,6 +25,10 @@
 }
 
 .messageBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
     background-color: transparent;
     color: rgb(41, 41, 122);
     border: rgb(41, 41, 122) 2px solid;
