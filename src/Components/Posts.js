@@ -1,3 +1,4 @@
+import { Visibility } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
@@ -5,8 +6,9 @@ import './post.css'
 
 const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
     const [posts, setPosts] = useState([])
-    const [mySearch, setMySearch] = useState("")
+    const [mySearch, setMySearch] = useState(null)
     const [currId, setCurrentId] = useState("")
+    const [visibility, setVisibility] = useState(true)
     const searchPostArr = [];
 
     useEffect(() => {
@@ -37,10 +39,12 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
 
         <div className='postCardBox'>
             {
-                posts && posts.map(post => <div className='postCard' key={post._id}>
-                    <h2>{"Title: " + post.title}</h2>
+                posts && posts.map(post => <div className='postCard' key={post._id} style={{ display: 'flex' }} >
                     {post.title.includes(mySearch) ? searchPostArr.push(post._id) : null}
-                    <p>{"Post Id: " + post._id}</p>
+
+                    <h2>{"Title: " + post.title}</h2>
+
+                    {/* <p>{"Post Id: " + post._id}</p> */}
                     <p>{post.description}</p>
                     <p><strong>Price: </strong>{post.price}</p>
                     <p><strong>Seller: </strong>{post.author.username}</p>
