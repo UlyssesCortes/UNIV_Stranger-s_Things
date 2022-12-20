@@ -27,7 +27,7 @@ const App = () => {
           <Route path='/register' element={<Register />} />
           <Route path='/' element={<LogIn token={token} setToken={setToken} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/logout' element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path='/createPost' element={<CreatePost isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path='/createPost' element={<CreatePost isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={token} />} />
         </Routes>
       </BrowserRouter>
     </>

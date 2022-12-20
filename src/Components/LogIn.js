@@ -103,8 +103,8 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
 
             </div>
             <form onSubmit={handleSubmit}>
-                <input type='text' name='username' value={username} onChange={handleChangeName} placeholder=' Username*' />
-                <input type='password' name='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
+                <input type='text' value={username} onChange={handleChangeName} placeholder=' Username*' />
+                <input type='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
                 <button type='submit'>Log In</button>
                 <Link to="/register">Don't have an account? Sign Up</Link>
             </form>
