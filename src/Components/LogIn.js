@@ -100,7 +100,6 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
             <div id='navbar'>
                 <div className='container'> {wrongUserAlert() && !info}</div>
                 <div className='container'> {loggedInAlert() && isLoggedIn}</div>
-
             </div>
             <form onSubmit={handleSubmit}>
                 <input type='text' value={username} onChange={handleChangeName} placeholder=' Username*' />

@@ -36,8 +36,6 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
             .catch(console.error);
     }
 
-
-
     const handleChangeTitle = (event) => {
         setTitle(event.target.value)
     }
