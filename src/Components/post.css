@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.searchForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
+    gap: 10px;
+    width: 10px;
+    overflow: hidden;
+}
+
+.searchForm input {
+    width: 150px;
+    font-size: 18px;
+    padding-left: 8px;
+}
+
+.searchForm button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 60px;
+    padding: 5px;
+    background-color: rgb(65, 44, 16);
+}
+
+.formSection {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* flex-wrap: wrap; */
+
+}

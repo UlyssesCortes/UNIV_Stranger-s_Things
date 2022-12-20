@@ -68,7 +68,7 @@ button {
     border: none;
     font-size: 1em;
     transition: all 1s ease;
-    outline: none; 
+    outline: none;
 }
 
 button:hover {
