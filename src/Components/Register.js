@@ -30,7 +30,6 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-
         fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/register', {
             method: "POST",
             headers: {

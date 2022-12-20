@@ -45,7 +45,11 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
             })
         }).then(response => response.json())
             .then(result => {
-                setToken(result?.data?.token)
+                if (result.success) {
+                    setToken(result?.data?.token)
+                    setIsLoggedIn(true)
+                    console.log(isLoggedIn);
+                }
 
             })
             .catch(console.error)
@@ -53,8 +57,6 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
         if (token) {
             // window.localStorage.setItem('token', token)
             // window.localStorage.setItem('loggedIn', isLoggedIn)
-            setIsLoggedIn(true)
-            console.log(isLoggedIn);
         }
 
         fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {

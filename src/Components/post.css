@@ -11,12 +11,11 @@
     align-items: center;
     height: 50px;
     gap: 10px;
-    width: 10px;
     overflow: hidden;
 }
 
 .searchForm input {
-    width: 150px;
+    width: 12em;
     font-size: 18px;
     padding-left: 8px;
 }

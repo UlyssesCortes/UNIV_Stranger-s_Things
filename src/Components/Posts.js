@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import './post.css'
 
-const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
+const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
@@ -13,6 +14,26 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
         }
         fetchPosts()
     }, [])
+
+    fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            post: {
+                title: "My favorite stuffed animal",
+                description: "This is a pooh doll from 1973. It has been carefully taken care of since I first got it.",
+                price: "$480.00",
+                willDeliver: true
+            }
+        })
+    }).then(response => response.json())
+        .then(result => {
+            console.log(result);
+        })
+        .catch(console.error);
 
     return <>
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
@@ -25,6 +46,9 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
                 {/* <button>Create Post</button> */}
             </form>
         </div>
+        <button><Link to='/createPost' className="links">Add Post</Link></button>
+        <button><Link to='/home' className="links">HOME</Link>
+        </button>
 
         <div className='postCardBox'>
             {
