@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './login.css';
 import Header from './Header';
 import { Link } from 'react-router-dom';
-import WrongAlert from './WrongAlert';
+// import WrongAlert from './WrongAlert';
 
 
 const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUsername }) => {
