@@ -48,8 +48,8 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
     const handleChangeLocation = (event) => {
         setLocation(event.target.value)
     }
-    const handleChangeDelivery = (event) => {
-        setDeliver(event.target.value)
+    const handleChangeDelivery = () => {
+        setDeliver(!deliver)
     }
 
     return <>

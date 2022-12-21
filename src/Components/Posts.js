@@ -23,6 +23,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
 
     const handleTitleSearch = (event) => {
         setMySearch(event.target.value)
+        setPosts()
     }
 
     return <>
@@ -40,8 +41,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
         <div className='postCardBox'>
             {
                 posts && posts.map(post => <div className='postCard' key={post._id} style={{ display: 'flex' }} >
-                    {post.title.includes(mySearch) ? searchPostArr.push(post._id) : null}
-
+                    {post.title.includes(mySearch) ? searchPostArr.push(post) : null}
                     <h2>{"Title: " + post.title}</h2>
 
                     {/* <p>{"Post Id: " + post._id}</p> */}
