@@ -9,6 +9,7 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
     const [price, setPrice] = useState("")
     const [deliver, setDeliver] = useState(false)
     const [location, setLocation] = useState("")
+    const defaultLocation = "[On Request]"
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -34,6 +35,12 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
                 console.log(title)
             })
             .catch(console.error);
+
+
+    }
+    if (!location) {
+        setLocation(defaultLocation)
+        console.log("default location", location)
     }
 
     const handleChangeTitle = (event) => {
@@ -44,9 +51,13 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
     }
     const handleChangePrice = (event) => {
         setPrice(event.target.value)
+
     }
     const handleChangeLocation = (event) => {
-        setLocation(event.target.value)
+
+        if (event.target.value) {
+            setLocation(event.target.value)
+        }
     }
     const handleChangeDelivery = () => {
         setDeliver(!deliver)
@@ -59,7 +70,7 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
             <form className="createPostForm" onSubmit={handleSubmit}>
                 <input type='text' placeholder='Title*' value={title} onChange={handleChangeTitle}></input>
                 <input type='text' placeholder='Description*' value={description} onChange={handleChangeDescription}></input>
-                <input type='text' placeholder='Price*' value={price} onChange={handleChangePrice}></input>
+                <input id="priceInput" type='number' placeholder='Price*' value={price} onChange={handleChangePrice}></input>
                 <input type='text' placeholder='Location' value={location} onChange={handleChangeLocation}></input>
                 <div className='checkBoxContainer'>
                     <label>Willing to delivery?</label>

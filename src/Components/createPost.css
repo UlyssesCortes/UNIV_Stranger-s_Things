@@ -35,9 +35,16 @@
 .createPostForm input {
     width: 80%;
     padding-left: 10px;
+    outline: none;
 }
 
 .createPostBtn {
     width: 80%;
     margin-top: 25px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

@@ -46,16 +46,16 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
         return (
             <>
                 {
-                    arr && arr.map(post => <div className='postCard' key={post._id} style={{ display: 'flex' }} >
-
-                        <h2>{"Title: " + post.title}</h2>
-                        <p>{post.description}</p>
-                        <p><strong>Price: </strong>{post.price}</p>
-                        <p><strong>Seller: </strong>{post.author.username}</p>
-                        <p><strong>Location: </strong>{post.location}</p>
-                        <button className='messageBtn'>SEND MESSAGE</button>
-                        <div style={{ display: "none" }}>{post.title.toLowerCase().includes(mySearch) ? posts.splice(posts.indexOf(post), 1) && posts.unshift(post) : null}</div>
-                    </div>
+                    arr && arr.map(post =>
+                        <div className='postCard' key={post._id} >
+                            <h2>{"Title: " + post.title}</h2>
+                            <p>{post.description}</p>
+                            <p><strong>Price: </strong>{post.price}</p>
+                            <p><strong>Seller: </strong>{post.author.username}</p>
+                            <p><strong>Location: </strong>{post.location}</p>
+                            <button className='messageBtn'>SEND MESSAGE</button>
+                            <div style={{ display: "none" }}>{post.title.toLowerCase().includes(mySearch) || post.author.username.toLowerCase().includes(mySearch) ? posts.splice(posts.indexOf(post), 1) && posts.unshift(post) : null}</div>
+                        </div>
 
                     )
                 }
@@ -66,11 +66,9 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
     return <>
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
         <div className='formSection'>
-            <h1 className='title'> Posts: </h1>
+            <h1 className='title'>Posts: </h1>
             <form className='searchForm'>
-                <input type='text' placeholder='title' onChange={handleTitleSearch}></input>
-                <input type='text' placeholder='body'></input>
-                <button type='sumbit'>Search</button>
+                <input type='text' placeholder='Search ' onChange={handleTitleSearch}></input>
                 {isLoggedIn && <button><Link to='/createPost' className="links">Add Post</Link></button>}
             </form>
         </div>

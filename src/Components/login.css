@@ -36,7 +36,7 @@ form input {
     height: 50px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    /* border-radius: 1%; */
+    outline: none;
 }
 
 form input {

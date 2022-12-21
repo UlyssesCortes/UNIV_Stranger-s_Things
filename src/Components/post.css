@@ -14,7 +14,8 @@
 }
 
 .searchForm input {
-    width: 12em;
+    outline: none;
+    width: 60%;
     font-size: 18px;
     padding-left: 8px;
 }
@@ -33,6 +34,17 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.title {
+    font-family: 'Dosis', sans-serif;
+    font-family: 'Merriweather', serif;
+    font-family: 'Montserrat', sans-serif;
+
+
+    margin-top: 5px;
+
+
 }
 
 /* .displayNoneNum {
