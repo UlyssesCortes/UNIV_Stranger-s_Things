@@ -1,4 +1,3 @@
-import { Visibility } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
@@ -7,9 +6,6 @@ import './post.css'
 const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
     const [posts, setPosts] = useState([])
     const [mySearch, setMySearch] = useState(null)
-    const [currId, setCurrentId] = useState("")
-    const [visibility, setVisibility] = useState(false)
-    const searchPostArr = [];
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -23,8 +19,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
 
     const handleTitleSearch = (event) => {
         if (event.target.value) {
-            setMySearch(event.target.value)
-            setVisibility(true)
+            setMySearch(event.target.value.toLowerCase())
         }
 
     }
@@ -53,14 +48,15 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
                 {
                     arr && arr.map(post => <div className='postCard' key={post._id} style={{ display: 'flex' }} >
 
-                        {post.title.includes(mySearch) ? posts.splice(posts.indexOf(post), 1) && posts.unshift(post) : null}
                         <h2>{"Title: " + post.title}</h2>
                         <p>{post.description}</p>
                         <p><strong>Price: </strong>{post.price}</p>
                         <p><strong>Seller: </strong>{post.author.username}</p>
                         <p><strong>Location: </strong>{post.location}</p>
                         <button className='messageBtn'>SEND MESSAGE</button>
+                        <div style={{ display: "none" }}>{post.title.toLowerCase().includes(mySearch) ? posts.splice(posts.indexOf(post), 1) && posts.unshift(post) : null}</div>
                     </div>
+
                     )
                 }
             </>
@@ -80,12 +76,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
         </div>
 
         <div className='postCardBox'>
-
-            {/* {visibility ? mapPosts(posts) : searchTitlePost(searchPostArr)} */}
-            {/* {searchTitlePost(searchPostArr)} */}
             {mapPosts(posts)}
-            {/* {console.log(searchPostArr)} */}
-
         </div>
     </>
 }
