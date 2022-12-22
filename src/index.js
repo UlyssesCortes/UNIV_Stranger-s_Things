@@ -9,6 +9,7 @@ import Home from './Components/Home';
 import Profile from './Components/Profile';
 import Logout from './Components/Logout';
 import CreatePost from './Components/CreatePost';
+import SendMessage from './Components/SendMessage';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -64,6 +65,12 @@ const App = () => {
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               token={token} />}
           />
+          <Route path='/sendMessage'
+            element={<SendMessage
+              isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+              token={token} />}
+          />
+
         </Routes>
       </BrowserRouter>
     </>

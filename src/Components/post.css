@@ -63,3 +63,15 @@ body {
     display: flex;
     gap: 10px;
 }
+
+.sendMessageBtn {
+    background-color: transparent;
+    border: solid 2px rgb(40, 40, 153);
+    color: rgb(40, 40, 153);
+    border-radius: 50px;
+}
+
+.sendMessageBtn:hover {
+    background-color: rgb(40, 40, 153);
+    color: white;
+}
