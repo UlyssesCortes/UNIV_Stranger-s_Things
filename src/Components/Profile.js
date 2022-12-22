@@ -7,7 +7,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
         <>
             <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
             <h1>Profile:</h1>
-            <h1>{token}</h1>
+            {/* <h1>{token}</h1> */}
         </>
     )
 }

@@ -51,7 +51,6 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
                     setIsLoggedIn(true)
                     console.log(isLoggedIn);
                 }
-
             })
             .catch(console.error)
 

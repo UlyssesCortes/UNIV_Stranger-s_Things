@@ -9,7 +9,9 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
     const [price, setPrice] = useState("")
     const [deliver, setDeliver] = useState(false)
     const [location, setLocation] = useState("")
+    const [postAdded, setPostAdded] = useState(false)
     const defaultLocation = "[On Request]"
+
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -32,12 +34,16 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
         }).then(response => response.json())
             .then(result => {
                 console.log(result);
+                if (result.success === true) {
+                    setPostAdded(true)
+                } else {
+                    setPostAdded(false)
+                }
                 console.log(title)
             })
             .catch(console.error);
-
-
     }
+
     if (!location) {
         setLocation(defaultLocation)
         console.log("default location", location)
@@ -63,11 +69,21 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
         setDeliver(!deliver)
     }
 
+
+    const postAddedAlert = () => {
+        return (
+            <div class="alertGreen">
+                <strong>Post Added!</strong>
+            </div>
+        )
+    }
+
     return <>
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <div className="bodyContainer">
             <h1>Create Post:</h1>
             <form className="createPostForm" onSubmit={handleSubmit}>
+                <div className="className "> {postAdded && postAddedAlert()}</div>
                 <input type='text' placeholder='Title*' value={title} onChange={handleChangeTitle}></input>
                 <input type='text' placeholder='Description*' value={description} onChange={handleChangeDescription}></input>
                 <input id="priceInput" type='number' placeholder='Price*' value={price} onChange={handleChangePrice}></input>

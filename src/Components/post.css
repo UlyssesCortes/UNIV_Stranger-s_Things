@@ -34,19 +34,32 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+
 }
 
 .title {
     font-family: 'Dosis', sans-serif;
     font-family: 'Merriweather', serif;
     font-family: 'Montserrat', sans-serif;
-
-
     margin-top: 5px;
-
-
 }
 
-/* .displayNoneNum {
-    display: none;
-} */
+body {
+    width: 100%;
+}
+
+.red {
+    background-color: transparent;
+    color: #C3272B;
+    border: solid 2px #C3272B;
+}
+
+.red:hover {
+    background-color: #C3272B;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
