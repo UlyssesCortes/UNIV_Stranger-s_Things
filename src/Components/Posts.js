@@ -26,37 +26,39 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
             setMySearch(event.target.value.toLowerCase())
         }
     }
-
-    const searchTitlePost = (arr) => {
-        return (
-            <>
-                {
-                    arr && arr.map((post) => <div className='postCard' key={post._id} style={{ position: 'relative', top: 0 }}>
-                        <h2>{"Title: " + post.title}</h2>
-                        <p>{"Post Id: " + post._id}</p>
-                        <p>{post.description}</p>
-                        <p><strong>Price: </strong>{post.price}</p>
-                        <p><strong>Seller: </strong>{post.author.username}</p>
-                        <p><strong>Location: </strong>{post.location}</p>
-                        <button className='messageBtn'>SEND MESSAGE</button>
-                    </div>)
-                }
-            </>
-        )
-    }
-
-
     const sendMessageContainer = (post) => {
         const messageHandler = (event) => {
             setMessage(event.target.value)
+            console.log(post)
+        }
+
+        const onSubmitMessage = () => {
+            console.log("Button pressed" + post)
+
+            fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts/${post._id}/messages`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    message: {
+                        content: "Do you still have this?  Would you take $10 less?"
+                    }
+                })
+            }).then(response => response.json())
+                .then(result => {
+                    console.log(result);
+                })
+                .catch(console.error);
         }
 
         return (
             <div>
-                <form onSubmit={console.log(currPostId)}>
-                    <h4>Enter Message to: {post} </h4>
+                <form onSubmit={onSubmitMessage}>
+                    <h4>Enter Message to: {post.author.username} </h4>
                     <input type="text" value={message} onChange={messageHandler} placeholder='Title*'></input>
-                    <button className='sendMessageBtn' type="submit">SEND MESSAGE</button>
+                    <button className='sendMessageBtn' type='submit'>SEND MESSAGE</button>
                 </form>
             </div>
         )
@@ -100,13 +102,11 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
                             <button type='button' className='messageBtn' onClick={() => setIsOpen(!isOpen)}>SEND MESSAGE</button>
                             <button type='button' className='messageBtn red' onClick={() => handleDeleteBtn(post)}>DELETE</button>
                         </section>
-                        <div>
-                            {currPostId === post._id ? console.log("Post id is equal") : null}
-                            {isOpen && sendMessageContainer(post.author.username)}
-                            {console.log(currPostId)}
-                            {console.log(post._id)}
-                        </div>
+
                         <div style={{ display: "none" }}>{post.title.toLowerCase().includes(mySearch) || post.author.username.toLowerCase().includes(mySearch) ? posts.splice(posts.indexOf(post), 1) && posts.unshift(post) : null}</div>
+                        <div>
+                            {isOpen && sendMessageContainer(post)}
+                        </div>
                     </div>)
             }
         </>
