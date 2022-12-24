@@ -15,6 +15,7 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [token, setToken] = useState('');
   const [username, setUsername] = useState('');
+  const [myData, setMyData] = useState({})
 
   return (
     <>
@@ -32,40 +33,51 @@ const App = () => {
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
               token={token}
-              setToken={setToken} />}
+              setToken={setToken}
+              myData={myData} />}
           />
-          <Route path='/'
+          <Route
+            path='/'
             element={<LogIn
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
               setToken={setToken} token={token}
               username={username}
-              setUsername={setUsername} />}
+              setUsername={setUsername}
+              setMyData={setMyData} myData={myData} />}
           />
-          <Route path='/login'
+          <Route
+            path='/login'
             element={<LogIn
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               setToken={setToken} token={token}
-              username={username} setUsername={setUsername} />}
+              username={username} setUsername={setUsername}
+              setMyData={setMyData} myData={myData} />}
           />
-          <Route path='/profile'
+          <Route
+            path='/profile'
             element={<Profile
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-              token={token} />}
+              token={token}
+              myData={myData} setMyData={setMyData} />}
           />
-          <Route path='/register'
+          <Route
+            path='/register'
             element={<Register />}
           />
-          <Route path='/logout'
+          <Route
+            path='/logout'
             element={<Logout
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
           />
-          <Route path='/createPost'
+          <Route
+            path='/createPost'
             element={<CreatePost
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               token={token} />}
           />
-          <Route path='/sendMessage'
+          <Route
+            path='/sendMessage'
             element={<SendMessage
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               token={token} />}

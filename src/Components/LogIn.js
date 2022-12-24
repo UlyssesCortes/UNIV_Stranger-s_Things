@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import WrongAlert from './WrongAlert';
 
 
-const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUsername }) => {
+const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUsername, setMyData, myData }) => {
 
     const [password, setPassword] = useState('');
     const [myPosts, setMyPosts] = useState([]);
@@ -49,11 +49,11 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
                 if (result.success) {
                     setToken(result?.data?.token)
                     setIsLoggedIn(true)
-                    console.log(isLoggedIn);
                 }
             })
             .catch(console.error)
 
+        // Use this fetch to get my personal posts and my messages
         fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {
             headers: {
                 'Content-Type': 'application/json',
@@ -65,17 +65,13 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
                 if (result.data === null) {
                     setInfo(false)
                 }
-                setMessage(result?.data?.messages)
                 setId(result.data._id)
                 setMyPosts(result.data.posts)
-
-                if (message && id && myPosts) {
-                    console.log("Messages", message)
-                    console.log("Id", id)
-                    console.log("Posts", myPosts)
-                }
             })
             .catch(console.error);
+
+        console.log("Id", id)
+        console.log("Posts", myPosts)
     }
 
     const handleChangeName = (event) => {

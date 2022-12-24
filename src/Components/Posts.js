@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import './post.css'
 
-const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
+const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
     const [posts, setPosts] = useState([])
     const [mySearch, setMySearch] = useState(null)
     const [postAdded, setPostAdded] = useState(false)
@@ -29,7 +29,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token }) => {
     const sendMessageContainer = (post) => {
         const messageHandler = (event) => {
             setMessage(event.target.value)
-            console.log(post)
+            // console.log(myData)
         }
 
         const onSubmitMessage = () => {
