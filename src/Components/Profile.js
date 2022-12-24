@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from './Header';
-
+import './profile.css'
 
 
 const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData }) => {
@@ -29,8 +29,6 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData
         fetchProfile()
     }, [])
 
-
-
     return (
         <>
             <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
@@ -40,8 +38,8 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData
             {
                 messageArr && messageArr.map(message =>
                     <div className='postCard' key={message._id} >
-                        <h2>{"Title: " + message.title}</h2>
-                        <p><strong>Content: </strong>{message.content}</p>
+                        <p><strong>Message to post:</strong> {message.post.title}</p>
+                        <p><strong>Content:</strong>{message.content}</p>
                     </div>)
             }
         </>

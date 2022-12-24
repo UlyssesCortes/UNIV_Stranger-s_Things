@@ -9,7 +9,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
     const [postAdded, setPostAdded] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [message, setMessage] = useState("")
-    const [currPostId, setCurrPostId] = useState("")
+    const [content, setContent] = useState("")
 
 
     useEffect(() => {
@@ -43,7 +43,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
                 },
                 body: JSON.stringify({
                     message: {
-                        content: "Do you still have this?  Would you take $10 less?"
+                        content: `${message}`
                     }
                 })
             }).then(response => response.json())
@@ -51,6 +51,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
                     console.log(result);
                 })
                 .catch(console.error);
+            setIsOpen(false)
         }
 
         return (
