@@ -29,10 +29,10 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
     const sendMessageContainer = (post) => {
         const messageHandler = (event) => {
             setMessage(event.target.value)
-            // console.log(myData)
         }
 
-        const onSubmitMessage = () => {
+        const onSubmitMessage = (event) => {
+            event.preventDefault()
             console.log("Button pressed" + post)
 
             fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts/${post._id}/messages`, {
