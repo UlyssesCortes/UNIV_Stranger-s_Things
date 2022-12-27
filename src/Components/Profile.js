@@ -43,9 +43,14 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData
                 <div className='postCard' key={message._id} >
                     {(message.fromUser.username === username &&
                         <div className="postCardContent">
-                            <p><strong>Message to post:</strong> {message.post.title}</p>
-                            <p><strong>Message from:</strong> {message.fromUser.username}</p>
-                            <p><strong>Content:</strong>{message.content}</p>
+                            <section className="icon">
+                                <img src="https://cdn-icons-png.flaticon.com/128/727/727399.png" alt="icon"></img>
+                                <h4> {message.fromUser.username}</h4>
+                            </section>
+                            <section className="infoSection">
+                                <h1> {message.post.title}</h1>
+                                <p>{message.content}</p>
+                            </section>
                         </div>
                     )}
                 </div>)
@@ -57,9 +62,14 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData
                 <div className='postCard' key={message._id} >
                     {(message.fromUser.username !== username &&
                         <div className="postCardContent">
-                            <p><strong>Message to post:</strong> {message.post.title}</p>
-                            <p><strong>Message to:</strong> {message.fromUser.username}</p>
-                            <p><strong>Content:</strong>{message.content}</p>
+                            <section className="icon">
+                                <img src="https://cdn-icons-png.flaticon.com/128/727/727399.png" alt="icon"></img>
+                                <h4> {message.fromUser.username}</h4>
+                            </section>
+                            <section className="infoSection">
+                                <h1> {message.post.title}</h1>
+                                <p>{message.content}</p>
+                            </section>
                         </div>
                     )}
                 </div>)

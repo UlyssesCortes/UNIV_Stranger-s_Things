@@ -1,21 +1,75 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 .postCard {
     display: flex;
     justify-content: center;
-    margin: 24px;
-    /* width: 50%; */
-    padding: 40px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.subHeader {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.subHeader button {
+    background-color: #CDD1C4;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.subHeader button:hover {
+    background-color: #eaece4;
 }
 
 .postCardContent {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    font-size: 18px;
 }
 
 .messagesContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
 
+.infoSection h1 {
+    text-align: center;
+    padding-bottom: 35px;
+    margin: 10px;
+}
+
+.icon h4 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.icon {
+    padding: 30px;
+    background-color: #CDD1C4;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+}
+
+.infoSection {
+    padding: 50px;
+    min-width: 15em;
+    background: linear-gradient(to left, rgb(255, 255, 255) 50%, #CDD1C4 50%) right;
+    background-size: 200%;
+    transition: .5s ease-out;
+}
+
+.infoSection:hover {
+    background-position: left;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 2px rgb(146, 143, 143);
 }
