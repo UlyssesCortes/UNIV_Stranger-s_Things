@@ -2,9 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(22, 35, 59);
+    /* background-color: rgb(22, 35, 59); */
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.7;
     height: 60px;
-    color: white;
+    color: #000000;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
 }
 
 .AppName {
@@ -23,9 +27,11 @@
     display: inline-block;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position: relative;
-    color: #ffffff;
+    color: #000000;
     padding: 5px;
     text-decoration: none;
+    font-weight: 100;
+    letter-spacing: 1px;
 }
 
 .links:after {
@@ -36,7 +42,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: #000000;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }

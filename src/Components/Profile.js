@@ -83,16 +83,19 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData
                 <h1>Profile:</h1>
                 <button type="button" onClick={() => fetchProfile()}>Refresh</button>
             </section>
-            <section className="messagesContainer">
-                <h1 className="title">Messages to me</h1>
-                <div className="messagesContainer">
-                    {messagesToMeFun()}
-                </div>
-                <h1 className="title">Messages from me</h1>
-                <div className="messagesContainer">
-                    {messagesFromMeFun()}
-                </div>
-            </section>
+            <main>
+                <section className="messagesContainer">
+                    <h1 className="title">Messages to me</h1>
+                    <div className="messagesContainer">
+                        {messagesToMeFun()}
+                    </div>
+                    <h1 className="title">Messages from me</h1>
+                    <div className="messagesContainer">
+                        {messagesFromMeFun()}
+                    </div>
+                </section>
+            </main>
+
 
 
         </>

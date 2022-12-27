@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.bulb {
+    position: absolute;
+    display: inline-block;
+    z-index: -1;
+    width: 50em;
+    right: 30em;
+    bottom: 30em;
+    height: 50em;
+    background-image: url('../img/blob\ \(1\).svg');
+    /* background-size: cover; */
+}
+
+.bulb2 {
+    position: absolute;
+    display: inline-block;
+    z-index: -1;
+    width: 50em;
+    right: -20em;
+    transform: rotate(90deg);
+    bottom: 40em;
+    height: 50em;
+    background-image: url('../img/blob\ \(1\).svg');
+    background-size: cover;
+
+}
