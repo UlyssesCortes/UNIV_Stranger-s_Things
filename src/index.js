@@ -42,8 +42,7 @@ const App = () => {
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
               setToken={setToken} token={token}
-              username={username}
-              setUsername={setUsername}
+              username={username} setUsername={setUsername}
               setMyData={setMyData} myData={myData} />}
           />
           <Route
@@ -59,7 +58,8 @@ const App = () => {
             element={<Profile
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               token={token}
-              myData={myData} setMyData={setMyData} />}
+              myData={myData} setMyData={setMyData}
+              username={username} />}
           />
           <Route
             path='/register'

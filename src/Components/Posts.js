@@ -75,7 +75,6 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
                     'Authorization': `Bearer ${token}`
                 }
             }).then(response => response.json())
-
                 .then(result => {
                     console.log(result);
                     const fetchPosts = async () => {
