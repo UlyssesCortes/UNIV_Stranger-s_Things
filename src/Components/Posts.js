@@ -56,8 +56,8 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
 
         return (
             <div>
-                <form onSubmit={onSubmitMessage}>
-                    <h4>Enter Message to: {post.author.username} </h4>
+                <form onSubmit={onSubmitMessage} className="sendMesForm">
+                    <h4>Send Message to: {post.author.username} </h4>
                     <input type="text" value={message} onChange={messageHandler} placeholder='Title*'></input>
                     <button className='sendMessageBtn' type='submit'>SEND MESSAGE</button>
                 </form>
@@ -91,26 +91,24 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
         return (<>
             {
                 arr && arr.map(post =>
-                    <div className='postCard' key={post._id} >
-                        <h2>{"Title: " + post.title}</h2>
-                        <p>{post.description}</p>
+                    <div className='postCard2' key={post._id} >
+                        <h2>{post.title}</h2>
+                        <p className='description truncated'>{post.description}</p>
                         <p><strong>Price: </strong>{post.price}</p>
                         <p><strong>Seller: </strong>{post.author.username}</p>
                         <p><strong>Location: </strong>{post.location}</p>
-
                         <section className='buttons'>
                             <button type='button' className='messageBtn' onClick={() => setIsOpen(!isOpen)}>SEND MESSAGE</button>
                             <button type='button' className='messageBtn red' onClick={() => handleDeleteBtn(post)}>DELETE</button>
                         </section>
 
                         <div style={{ display: "none" }}>{post.title.toLowerCase().includes(mySearch) || post.author.username.toLowerCase().includes(mySearch) ? posts.splice(posts.indexOf(post), 1) && posts.unshift(post) : null}</div>
-                        <div>
+                        <div className='sendMesForm'>
                             {isOpen && sendMessageContainer(post)}
                         </div>
                     </div>)
             }
-        </>
-        )
+        </>)
     }
 
     const postDeleatedAlert = () => {

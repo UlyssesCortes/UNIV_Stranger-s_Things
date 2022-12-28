@@ -27,15 +27,16 @@ body::-webkit-scrollbar {
 
 .bulb5 {
     position: absolute;
-    display: inline-block;
+    /* display: inline-block; */
     z-index: -1;
-    width: 80em;
-    right: 25em;
-    transform: rotate(90deg);
-    bottom: -50em;
+    width: 150em;
+    right: 55em;
+    transform: rotate(110deg);
+    bottom: -55em;
     height: 50em;
     background-image: url('../img/blobanimation.svg');
-    background-size: cover;
+    /* background-position: bottom left; */
+    background-repeat: no-repeat;
 }
 
 .bulb2 {
