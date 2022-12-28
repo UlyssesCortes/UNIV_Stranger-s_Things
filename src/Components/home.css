@@ -16,12 +16,26 @@ body::-webkit-scrollbar {
     position: absolute;
     display: inline-block;
     z-index: -1;
-    width: 50em;
-    right: 30em;
-    bottom: 30em;
+    width: 80em;
+    right: -25em;
+    transform: rotate(260deg);
+    bottom: -32em;
     height: 50em;
-    background-image: url('../img/blob\ \(1\).svg');
-    /* background-size: cover; */
+    background-image: url('../img/blobanimation.svg');
+    background-size: cover;
+}
+
+.bulb5 {
+    position: absolute;
+    display: inline-block;
+    z-index: -1;
+    width: 80em;
+    right: 25em;
+    transform: rotate(90deg);
+    bottom: -50em;
+    height: 50em;
+    background-image: url('../img/blobanimation.svg');
+    background-size: cover;
 }
 
 .bulb2 {
@@ -29,11 +43,57 @@ body::-webkit-scrollbar {
     display: inline-block;
     z-index: -1;
     width: 50em;
-    right: -20em;
-    transform: rotate(90deg);
-    bottom: 40em;
+    right: -25em;
+    transform: rotate(140deg);
+    bottom: 30em;
     height: 50em;
     background-image: url('../img/blob\ \(1\).svg');
     background-size: cover;
+}
 
+.bulb3 {
+    position: absolute;
+    /* position: fixed; */
+    z-index: -1;
+    width: 45em;
+    height: 50em;
+    background-image: url('../img/blob\ \(1\).svg');
+    background-size: cover;
+    background-position: top left;
+    margin-left: -300px;
+    margin-top: -350px;
+}
+
+.homeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    gap: 10px;
+}
+
+.homeContainer h1 {
+    font-size: 50px;
+    padding-bottom: 20px;
+}
+
+.homeContainer p {
+    font-size: 20px;
+}
+
+.log {
+    border: 1px solid black;
+    border-radius: 15%;
+    padding: 10px;
+    width: 10em;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .bulb,
+    .bulb3 {
+        display: none;
+    }
 }

@@ -11,26 +11,23 @@ body {}
     justify-content: center;
     margin: 0px;
     padding: 0px;
-
 }
 
 .subHeader {
     display: flex;
     padding: 20px;
     justify-content: space-between;
-
 }
 
 .subHeader button {
-    background-color: #CDD1C4;
+    background-color: white;
+    opacity: .8;
     color: black;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
 }
 
 .subHeader button:hover {
     background-color: #eaece4;
-
 }
 
 .postCardContent {
@@ -38,7 +35,6 @@ body {}
     justify-content: center;
     flex-direction: row;
     font-size: 18px;
-
 }
 
 .messagesContainer {
@@ -71,6 +67,7 @@ body {}
 .infoSection {
     padding: 50px;
     min-width: 15em;
+    max-width: 20em;
     background: linear-gradient(to left, rgb(255, 255, 255) 50%, #F2F4F8 50%) right;
     background-size: 200%;
     transition: .5s ease-out;
@@ -79,15 +76,7 @@ body {}
 .infoSection:hover {
     background-position: left;
     /* color: rgb(197, 102, 102); */
-    /* text-shadow: 1px 1px 2px rgb(146, 143, 143); */
-    text-shadow:
-        0 0 5px rgb(255, 255, 255, 1),
-        0 0 10px rgb(255, 255, 255, 1),
-        0 0 20px rgb(255, 255, 255, 1),
-        0 0 30px rgb(255, 255, 255, 1),
-        -1px 0 rgb(224, 88, 156),
-        0 1px rgb(224, 88, 156),
-        1px 0 rgb(224, 88, 156),
-        0 -1px rgb(224, 88, 156);
-    -webkit-text-stroke: 1px rgb(224, 88, 156);
+    text-shadow: 1px 1px 2px rgb(146, 143, 143);
+
+
 }

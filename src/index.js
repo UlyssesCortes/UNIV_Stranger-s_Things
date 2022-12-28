@@ -25,7 +25,8 @@ const App = () => {
             path='/home'
             element={<Home
               isLoggedIn={isLoggedIn}
-              setIsLoggedIn={setIsLoggedIn} />}
+              setIsLoggedIn={setIsLoggedIn}
+              username={username} />}
           />
           <Route
             path='/posts'

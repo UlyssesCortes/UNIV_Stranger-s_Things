@@ -1,12 +1,12 @@
 .alert {
   padding: 20px;
-  background-color: #f44336;
+  background-color: #e6857e;
   color: white;
 }
 
 .alertGreen {
   padding: 20px;
-  background-color: #146b23;
+  background-color: #6e8d73;
   color: white;
 }
 
@@ -33,6 +33,29 @@
   overflow: hidden;
   -webkit-animation: cssAnimation 4s forwards;
   animation: cssAnimation 4s forwards;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  gap: 20px;
+}
+
+.logout {
+  border: 1px solid black;
+  border-radius: 15%;
+  padding: 10px;
+  width: 10em;
+  text-align: center;
+  background-color: transparent;
+  color: black;
+
+}
+
+.logout:hover {
+  background-color: rgb(238, 235, 235);
 }
 
 @keyframes cssAnimation {

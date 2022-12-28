@@ -10,17 +10,12 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
+    height: 80vh;
     margin-top: 2rem;
 }
 
-#navbar {
-    flex-grow: 1;
-    max-height: 10%;
-    min-height: 40px;
-    color: gray;
-    padding: 1em 0 0 1em;
+#container h1 {
+    margin-bottom: 20px;
 }
 
 form {
@@ -28,8 +23,7 @@ form {
     flex-direction: column;
     justify-content: center;
     width: 50%;
-    flex-grow: 2;
-    margin: 1em;
+    gap: 0;
 }
 
 form input {
@@ -43,34 +37,27 @@ form input {
     margin: 1em 0;
     font-size: 1em;
     padding-left: 10px;
-
 }
 
 form button {
     padding: 1em 2em;
-    background-color: #59A9C2;
-    color: white;
+    background-color: #fae4e9;
+    color: rgb(0, 0, 0);
     border: none;
     font-size: 1em;
     transition: all 1s ease;
     outline: none;
-}
-
-button {
-    padding: 1em 2em;
-    background-color: #59A9C2;
-    color: white;
-    border: none;
-    font-size: 1em;
-    transition: all 1s ease;
-    outline: none;
-}
-
-button:hover {
-    background-color: #65878F;
-
 }
 
 form button:hover {
-    background-color: #65878F;
+    background-color: #f3eef1;
+}
+
+.registerLink {
+    color: black;
+    text-decoration: none;
+}
+
+.registerLink:hover {
+    text-decoration: underline;
 }

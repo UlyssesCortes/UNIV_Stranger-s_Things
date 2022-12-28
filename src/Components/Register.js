@@ -90,7 +90,7 @@ const Register = () => {
                 <input type='password' name='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
                 <input type='password' name='password' value={passwordVerification} onChange={handleChangePasswordVerification} placeholder=' Confirm Password*' />
                 <button type='submit'>Register</button>
-                <Link to="/login">Already have an account? Log in</Link>
+                <Link to="/login" className='registerLink'>Already have an account? Log in</Link>
             </form>
         </div>
     </>

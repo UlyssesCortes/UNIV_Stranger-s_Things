@@ -11,6 +11,8 @@
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
+    flex-grow: 2;
+    margin: 1em;
 }
 
 .searchForm input {
@@ -18,6 +20,7 @@
     width: 60%;
     font-size: 18px;
     padding-left: 8px;
+    opacity: .8;
 }
 
 .searchForm button {
@@ -27,7 +30,11 @@
     width: 100px;
     height: 50px;
     padding: 5px;
-    background-color: rgb(65, 44, 16);
+    background-color: rgb(241, 239, 239);
+}
+
+.searchForm button:hover {
+    background-color: transparent;
 }
 
 .formSection {

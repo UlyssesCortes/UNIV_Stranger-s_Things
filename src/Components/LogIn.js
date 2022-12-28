@@ -86,14 +86,12 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
         <div id='container'>
             <h1>Login:</h1>
-            <div id='navbar'>
-            </div>
             <form onSubmit={handleSubmit}>
                 {isLoggedIn ? <div className='container'>  {isLoggedIn && loggedInAlert()}</div> : <div className='container'>  {!isLoggedIn && !info && wrongUserAlert()}</div>}
                 <input type='text' value={username} onChange={handleChangeName} placeholder=' Username*' />
                 <input type='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
                 <button type='submit'>Log In</button>
-                <Link to="/register">Don't have an account? Sign Up</Link>
+                <Link className='registerLink' to="/register">Don't have an account? Sign Up</Link>
             </form>
         </div>
     </>

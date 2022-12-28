@@ -11,6 +11,7 @@
     padding: 20px;
     gap: 15px;
     border-radius: 1%;
+    backdrop-filter: blur(1.5px);
 }
 
 .postCardBox h2 {

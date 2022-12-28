@@ -19,9 +19,7 @@ const Logout = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
         <div id='container'>
             <h1>Logout:</h1>
-            <div id='navbar'>
-            </div>
-            <button type='button' onClick={() => setIsOpen(!isOpen)}>Log Out</button>
+            <button type='button' className='logout' onClick={() => setIsOpen(!isOpen)}>Log Out</button>
         </div>
         <div className='containerAlert'> {isOpen && alert()}</div>
     </>
