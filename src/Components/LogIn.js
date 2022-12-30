@@ -33,6 +33,7 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
         event.preventDefault()
 
         console.log("Log in clicked")
+
         await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/login', {
             method: "POST",
             headers: {
@@ -46,10 +47,15 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, token, setToken, username, setUserna
             })
         }).then(response => response.json())
             .then(result => {
-                if (result.success) {
+                console.log("UP 49", result)
+                console.log("UP token", result.data.token)
+                if (!token) {
                     setToken(result?.data?.token)
+                }
+
+                if (result.success) {
                     setIsLoggedIn(true)
-                    console.log("UP 52", result)
+                    setToken(result?.data?.token)
 
                     fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {
                         headers: {

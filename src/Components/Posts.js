@@ -16,6 +16,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
             const resp = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts')
             const dataFromApi = await resp.json();
             setPosts(dataFromApi.data.posts);
+            console.log(posts)
         }
         fetchPosts()
     }, [])
