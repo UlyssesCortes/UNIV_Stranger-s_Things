@@ -80,7 +80,6 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
-    /* background-color: red; */
 }
 
 .sendMesForm input {
@@ -94,7 +93,6 @@ body {
     display: flex;
     flex-direction: row;
     width: 200px;
-    /* background-color: #C3272B; */
 }
 
 .sendMessageBtn {

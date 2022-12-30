@@ -75,7 +75,8 @@ body::-webkit-scrollbar {
 }
 
 .homeContainer h1 {
-    font-size: 50px;
+    text-align: center;
+    font-size: 45px;
     padding-bottom: 20px;
 }
 

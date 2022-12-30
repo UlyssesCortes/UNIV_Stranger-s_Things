@@ -23,11 +23,8 @@ const Header = ({ isLoggedIn }) => {
                 <div ><div className='bulb3'></div></div>
                 <div className='bulb4'></div>
                 <div className='bulb5'></div>
-
             </main>
         </>
-
-
     )
 }
 

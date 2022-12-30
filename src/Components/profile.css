@@ -4,8 +4,6 @@
     box-sizing: border-box;
 }
 
-body {}
-
 .postCard {
     display: flex;
     justify-content: center;
@@ -33,8 +31,11 @@ body {}
 .postCardContent {
     display: flex;
     justify-content: center;
+    align-content: center;
     flex-direction: row;
-    font-size: 18px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    max-width: 30em;
+    height: 210px;
 }
 
 .messagesContainer {
@@ -43,40 +44,63 @@ body {}
     flex-wrap: wrap;
     gap: 30px;
     padding: 20px;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    margin: 2em;
+    font-size: 24px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 3vw;
+    text-transform: uppercase;
 }
 
 .infoSection h1 {
     text-align: center;
     padding-bottom: 35px;
     margin: 10px;
-
 }
 
 .icon h4 {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 20px;
 }
 
 .icon {
-    padding: 30px;
+    padding: 15px;
     background-color: #F2F4F8;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .infoSection {
-    padding: 50px;
-    min-width: 15em;
-    max-width: 20em;
-    background: linear-gradient(to left, rgb(255, 255, 255) 50%, #F2F4F8 50%) right;
+    padding: 40px;
+    background: linear-gradient(to left, white 50%, #F2F4F8 50%) right;
+    opacity: .8;
     background-size: 200%;
     transition: .5s ease-out;
 }
 
+.infoSection h1 {
+    margin-top: -10px;
+}
+
+.subHeader button {
+    font-size: 16px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.subHeader button:hover {
+    background-color: transparent;
+    border: none;
+}
+
 .infoSection:hover {
     background-position: left;
-    /* color: rgb(197, 102, 102); */
-    text-shadow: 1px 1px 2px rgb(146, 143, 143);
-
-
+    opacity: 1;
 }

@@ -9,13 +9,13 @@ import Home from './Components/Home';
 import Profile from './Components/Profile';
 import Logout from './Components/Logout';
 import CreatePost from './Components/CreatePost';
-import SendMessage from './Components/SendMessage';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [token, setToken] = useState('');
   const [username, setUsername] = useState('');
   const [myData, setMyData] = useState({})
+  const [messagesArray, setMessagesArray] = useState([])
 
   return (
     <>
@@ -35,7 +35,8 @@ const App = () => {
               setIsLoggedIn={setIsLoggedIn}
               token={token}
               setToken={setToken}
-              myData={myData} />}
+              myData={myData}
+              username={username} />}
           />
           <Route
             path='/'
@@ -44,7 +45,8 @@ const App = () => {
               setIsLoggedIn={setIsLoggedIn}
               setToken={setToken} token={token}
               username={username} setUsername={setUsername}
-              setMyData={setMyData} myData={myData} />}
+              setMyData={setMyData} myData={myData}
+              setMessagesArray={setMessagesArray} />}
           />
           <Route
             path='/login'
@@ -52,7 +54,8 @@ const App = () => {
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               setToken={setToken} token={token}
               username={username} setUsername={setUsername}
-              setMyData={setMyData} myData={myData} />}
+              setMyData={setMyData} myData={myData}
+              setMessagesArray={setMessagesArray} />}
           />
           <Route
             path='/profile'
@@ -60,7 +63,8 @@ const App = () => {
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               token={token}
               myData={myData} setMyData={setMyData}
-              username={username} />}
+              username={username}
+              messagesArray={messagesArray} setMessagesArray={setMessagesArray} />}
           />
           <Route
             path='/register'
@@ -77,13 +81,6 @@ const App = () => {
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               token={token} />}
           />
-          <Route
-            path='/sendMessage'
-            element={<SendMessage
-              isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-              token={token} />}
-          />
-
         </Routes>
       </BrowserRouter>
     </>

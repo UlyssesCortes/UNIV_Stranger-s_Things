@@ -3,38 +3,35 @@ import Header from './Header';
 import './profile.css'
 
 
-const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData, username }) => {
+const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData, username, messagesArray, setMessagesArray }) => {
 
     const [profileInfo, setProfileInfo] = useState([])
     const [messageArr, setMessageArr] = useState([])
-    const [visible, setVisible] = useState(false)
     const [filterByAuthor, setFilterByAuthor] = useState([])
     const [messagesFromMe, setMessagesFromMe] = useState([])
     const [messagesToMe, setMessagesToMe] = useState([])
     // const messagesFromMe = [];
     // const messagesToMe = [];
 
-    const fetchProfile = async () => {
-
-        await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        }).then(response => response.json())
-            .then(result => {
-                setMyData(result.data)
-                setProfileInfo(myData)
-                setMessageArr(profileInfo.messages)
-                // console.log("My Data", myData)
-                // console.log("My data Messages", messageArr)
-                setFilterByAuthor(messageArr.filter(res => res.fromUser.username === username ? messagesFromMe.push(res) : messagesToMe.push(res)))
-            })
-            .catch(console.error);
-    }
+    // const fetchMessage = async () => {
+    //     const resp = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${token}`
+    //         }
+    //     })
+    //     const result = await resp.json();
+    //     setMessageArr([])
+    //     if (result) {
+    //         setMessageArr(result.data.messages)
+    //         console.log(messageArr)
+    //         setFilterByAuthor(messageArr.filter(res => res.fromUser.username === username ? messagesFromMe.push(res) : messagesToMe.push(res)))
+    //     }
+    // }
 
     useEffect(() => {
-        fetchProfile()
+        setFilterByAuthor(messagesArray.data.messages.filter(res => res.fromUser.username === username ? messagesFromMe.push(res) : messagesToMe.push(res)))
+
     }, [])
 
     const messagesFromMeFun = () => {
@@ -56,6 +53,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData
                 </div>)
         )
     }
+
     const messagesToMeFun = () => {
         return (
             messagesToMe && messagesToMe.map(message =>
@@ -80,24 +78,24 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData
         <>
             <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
             <section className="subHeader">
-                <h1>Profile:</h1>
-                <button type="button" onClick={() => fetchProfile()}>Refresh</button>
+                {/* <button type="button" className="links log" onClick={() => fetchMessage()}>Refresh</button> */}
             </section>
             <main>
                 <section className="messagesContainer">
-                    <h1 className="title">Messages to me</h1>
-                    <div className="messagesContainer">
-                        {messagesToMeFun()}
-                    </div>
-                    <h1 className="title">Messages from me</h1>
-                    <div className="messagesContainer">
-                        {messagesFromMeFun()}
-                    </div>
+                    <section>
+                        <h1 className="title">Messages to me:</h1>
+                        <div className="messagesContainer">
+                            {messagesToMeFun()}
+                        </div>
+                    </section>
+                    <section>
+                        <h1 className="title">Messages from me:</h1>
+                        <div className="messagesContainer">
+                            {messagesFromMeFun()}
+                        </div>
+                    </section>
                 </section>
             </main>
-
-
-
         </>
     )
 }

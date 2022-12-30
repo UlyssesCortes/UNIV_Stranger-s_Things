@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import './post.css'
 
-const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
+const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
     const [posts, setPosts] = useState([])
     const [mySearch, setMySearch] = useState(null)
     const [postAdded, setPostAdded] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [message, setMessage] = useState("")
-    const [content, setContent] = useState("")
-
+    const [isMyPost, setIsMyPost] = useState(false)
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -33,7 +32,6 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
 
         const onSubmitMessage = (event) => {
             event.preventDefault()
-            console.log("Button pressed" + post)
 
             fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts/${post._id}/messages`, {
                 method: "POST",
@@ -55,13 +53,15 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
         }
 
         return (
-            <div>
-                <form onSubmit={onSubmitMessage} className="sendMesForm">
-                    <h4>Send Message to: {post.author.username} </h4>
-                    <input type="text" value={message} onChange={messageHandler} placeholder='Title*'></input>
-                    <button className='sendMessageBtn' type='submit'>SEND MESSAGE</button>
-                </form>
-            </div>
+            <>
+                {(!isMyPost &&
+                    <form onSubmit={onSubmitMessage} className="sendMesForm">
+                        <h4>Send Message to: {post.author.username} </h4>
+                        <input type="text" value={message} onChange={messageHandler} placeholder='Title*'></input>
+                        <button className='sendMessageBtn' type='submit'>SEND MESSAGE</button>
+                    </form>
+                )}
+            </>
         )
     }
 
@@ -88,6 +88,15 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
                 .catch(console.error);
         }
 
+        const sendMesBtn = (post) => {
+            if (post.author.username === username) {
+                setIsMyPost(true)
+            } else {
+                setIsMyPost(false)
+            }
+            setIsOpen(!isOpen)
+        }
+
         return (<>
             {
                 arr && arr.map(post =>
@@ -97,11 +106,12 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, myData }) => {
                         <p><strong>Price: </strong>{post.price}</p>
                         <p><strong>Seller: </strong>{post.author.username}</p>
                         <p><strong>Location: </strong>{post.location}</p>
-                        <section className='buttons'>
-                            <button type='button' className='messageBtn' onClick={() => setIsOpen(!isOpen)}>SEND MESSAGE</button>
-                            <button type='button' className='messageBtn red' onClick={() => handleDeleteBtn(post)}>DELETE</button>
-                        </section>
-
+                        {(isLoggedIn &&
+                            <section className='buttons'>
+                                <button type='button' className='messageBtn' onClick={() => sendMesBtn(post)}>SEND MESSAGE</button>
+                                <button type='button' className='messageBtn red' onClick={() => handleDeleteBtn(post)}>DELETE</button>
+                            </section>
+                        )}
                         <div style={{ display: "none" }}>{post.title.toLowerCase().includes(mySearch) || post.author.username.toLowerCase().includes(mySearch) ? posts.splice(posts.indexOf(post), 1) && posts.unshift(post) : null}</div>
                         <div className='sendMesForm'>
                             {isOpen && sendMessageContainer(post)}
