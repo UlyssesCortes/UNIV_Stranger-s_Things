@@ -23,9 +23,9 @@ const Home = ({ isLoggedIn, setIsLoggedIn, setToken, username }) => {
     return (
         <>
             <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
-            <div>
+            <main className='animate__animated animate__zoomIn'>
                 {usernameVerified()}
-            </div>
+            </main>
         </>
     )
 }

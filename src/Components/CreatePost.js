@@ -12,7 +12,6 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
     const [postAdded, setPostAdded] = useState(false)
     const defaultLocation = "[On Request]"
 
-
     const handleSubmit = (event) => {
         event.preventDefault()
 
@@ -77,12 +76,12 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
 
     return <>
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        <div className="bodyContainer">
+        <div className="bodyContainer animate__animated animate__zoomIn">
             <h1>Create Post:</h1>
             <form className="createPostForm" onSubmit={handleSubmit}>
                 <div className="className "> {postAdded && postAddedAlert()}</div>
                 <input type='text' placeholder='Title*' value={title} onChange={handleChangeTitle}></input>
-                <input type='text' placeholder='Description*' value={description} onChange={handleChangeDescription}></input>
+                <input className="descriptionInput" type='text' placeholder='Description* Max-Lenght 100' value={description} onChange={handleChangeDescription} maxlength={100}></input>
                 <input id="priceInput" type='number' placeholder='Price*' value={price} onChange={handleChangePrice}></input>
                 <input type='text' placeholder='Location' value={location} onChange={handleChangeLocation}></input>
                 <div className='checkBoxContainer'>

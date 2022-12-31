@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import './post.css'
+import 'animate.css';
 
 const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
     const [posts, setPosts] = useState([])
@@ -58,8 +59,9 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
         return (
             <>
                 {(!isMyPost && currPostId === post._id &&
-                    <form onSubmit={onSubmitMessage} className="sendMesForm">
+                    <form onSubmit={onSubmitMessage} className="sendMesForm animate__animated animate__zoomInDown">
                         <h4>Message to: {post.author.username} </h4>
+                        {/* <h1 class="animate__animated animate__bounce">An animated element</h1> */}
                         <input type="text" value={message} onChange={messageHandler} placeholder='Title*'></input>
                         <button className='sendMessageBtn' type='submit'>SEND MESSAGE</button>
                     </form>
@@ -106,7 +108,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
         return (<>
             {
                 arr && arr.map(post =>
-                    <div className='postCard2' key={post._id} >
+                    <div className='postCard2 animate__animated animate__backInLeft' key={post._id} >
                         <h2>{post.title}</h2>
                         <p className='description truncated'>{post.description}</p>
                         <p><strong>Price: </strong>{post.price}</p>
@@ -147,8 +149,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
             </section>
 
         </div>
-
-        <div className='postCardBox'>
+        <div className='postCardBox '>
             {mapPosts(posts)}
             <div className='containerAlert'>{postAdded && postDeleatedAlert()}</div>
         </div>

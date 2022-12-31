@@ -33,6 +33,7 @@ form input {
     outline: none;
 }
 
+
 form input {
     margin: 1em 0;
     font-size: 1em;
@@ -60,4 +61,10 @@ form button:hover {
 
 .registerLink:hover {
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+    form {
+        width: 75%;
+    }
 }

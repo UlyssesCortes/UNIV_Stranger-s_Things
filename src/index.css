@@ -6,32 +6,29 @@
 
 .postCard2 {
     display: flex;
+    backdrop-filter: blur(100px);
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 25px;
     gap: 15px;
-    background-color: transparent;
-    width: 25em;
+    width: 350px;
     border-radius: 1%;
-    backdrop-filter: blur(100px);
 }
 
 .description {
-    padding: 20px;
     height: 7em;
 }
 
 .truncated {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: wrap;
     max-height: 3.6em;
 }
 
 .postCardBox h2 {
     padding-bottom: 15px;
     text-align: center;
-
 }
 
 .postCardBox {
@@ -41,7 +38,6 @@
     flex-wrap: wrap;
     padding: 30px;
     gap: 25px;
-    min-width: 28em;
 }
 
 .messageBtn {

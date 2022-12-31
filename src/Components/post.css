@@ -24,11 +24,10 @@
 }
 
 .searchForm button {
-    align-items: center;
-    width: 100px;
+    text-align: center;
+    width: 90px;
     height: 50px;
-    /* width: 5em; */
-    padding: 5px;
+    padding: 3px;
     background-color: rgb(250, 247, 247);
 }
 
@@ -49,7 +48,9 @@
     align-items: center;
     width: 85%;
     gap: 5px;
+    /* background-color: red; */
 }
+
 
 .titlePost {
     font-family: 'Work Sans', sans-serif;

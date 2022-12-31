@@ -17,11 +17,14 @@ const Logout = ({ isLoggedIn, setIsLoggedIn, setToken }) => {
 
     return <>
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
-        <div id='container'>
-            <h1>Logout:</h1>
-            <button type='button' className='logout' onClick={() => setIsOpen(!isOpen)}>Log Out</button>
-        </div>
-        <div className='containerAlert'> {isOpen && alert()}</div>
+        <body className='animate__animated animate__zoomIn'>
+            <div id='container'>
+                <h1>Logout:</h1>
+                <button type='button' className='logout' onClick={() => setIsOpen(!isOpen)}>Log Out</button>
+            </div>
+            <div className='containerAlert'> {isOpen && alert()}</div>
+        </body>
+
     </>
 }
 

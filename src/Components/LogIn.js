@@ -78,17 +78,20 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, setToken, username, setUsername, set
 
     return <>
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
-        <div id='container'>
-            <h1>Login:</h1>
-            <form onSubmit={handleSubmit}>
-                {isLoggedIn ? <div className='container'>  {isLoggedIn && loggedInAlert()}</div> : <div className='container'>  {!info && wrongUserAlert()}</div>}
+        <body className='animate__animated animate__backInLeft'>
+            <div id='container'>
+                <h1>Login:</h1>
+                <form onSubmit={handleSubmit}>
+                    {isLoggedIn ? <div className='container'>  {isLoggedIn && loggedInAlert()}</div> : <div className='container'>  {!info && wrongUserAlert()}</div>}
 
-                <input type='text' value={username} onChange={handleChangeName} placeholder=' Username*' />
-                <input type='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
-                <button type='submit' onClick={handleSubmit()}>Log In</button>
-                <Link className='registerLink' to="/register">Don't have an account? Sign Up</Link>
-            </form>
-        </div>
+                    <input className='loginInput' type='text' value={username} onChange={handleChangeName} placeholder=' Username*' />
+                    <input className='loginInput' type='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
+                    <button type='submit' onClick={handleSubmit()}>Log In</button>
+                    <Link className='registerLink' to="/register">Don't have an account? Sign Up</Link>
+                </form>
+            </div>
+        </body>
+
     </>
 }
 

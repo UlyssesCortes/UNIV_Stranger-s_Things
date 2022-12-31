@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Header from './Header';
 import './profile.css'
+import 'animate.css';
+
 
 
 const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, username, messagesArray }) => {
@@ -62,7 +64,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, username, messagesArray 
             <section className="subHeader">
                 {/* <button type="button" className="links log" onClick={() => fetchMessage()}>Refresh</button> */}
             </section>
-            <main>
+            <main className="animate__animated animate__fadeInLeft">
                 <section className="messagesContainer">
                     <section>
                         <h1 className="title">Messages to me:</h1>

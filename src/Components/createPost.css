@@ -3,9 +3,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 5%;
     width: 100%;
-    flex-wrap: nowrap;
+    /* flex-wrap: nowrap; */
 }
 
 .checkBoxContainer {
@@ -13,6 +13,10 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
+}
+
+.bodyContainer h1 {
+    margin-bottom: 25px;
 }
 
 .checkBox {

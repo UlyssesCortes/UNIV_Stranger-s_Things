@@ -79,20 +79,21 @@ const Register = () => {
 
     return <>
         <Header />
-        <div id='container'>
-            <h1>Register:</h1>
-            <div id='navbar'>
+        <body className='animate__animated animate__backInLeft'>
+            <div id='container'>
+                <h1>Register:</h1>
+                <form onSubmit={handleSubmit}>
+                    <div className='container'> {invalid && invalidPasswordAlert()}</div>
+                    <div className='container'> {valid && validPasswordAlert()}</div>
+                    <input type='text' name='username' value={username} onChange={handleChangeName} placeholder=' Username*' />
+                    <input type='password' name='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
+                    <input type='password' name='password' value={passwordVerification} onChange={handleChangePasswordVerification} placeholder=' Confirm Password*' />
+                    <button type='submit'>Register</button>
+                    <Link to="/login" className='registerLink'>Already have an account? Log in</Link>
+                </form>
             </div>
-            <form onSubmit={handleSubmit}>
-                <div className='container'> {invalid && invalidPasswordAlert()}</div>
-                <div className='container'> {valid && validPasswordAlert()}</div>
-                <input type='text' name='username' value={username} onChange={handleChangeName} placeholder=' Username*' />
-                <input type='password' name='password' value={password} onChange={handleChangePassword} placeholder=' Password*' />
-                <input type='password' name='password' value={passwordVerification} onChange={handleChangePasswordVerification} placeholder=' Confirm Password*' />
-                <button type='submit'>Register</button>
-                <Link to="/login" className='registerLink'>Already have an account? Log in</Link>
-            </form>
-        </div>
+        </body>
+
     </>
 }
 
