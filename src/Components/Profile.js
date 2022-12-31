@@ -3,31 +3,13 @@ import Header from './Header';
 import './profile.css'
 
 
-const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, myData, token, setMyData, username, messagesArray, setMessagesArray }) => {
+const Profile = ({ isLoggedIn, setIsLoggedIn, setToken, username, messagesArray }) => {
 
-    const [profileInfo, setProfileInfo] = useState([])
-    const [messageArr, setMessageArr] = useState([])
     const [filterByAuthor, setFilterByAuthor] = useState([])
     const [messagesFromMe, setMessagesFromMe] = useState([])
     const [messagesToMe, setMessagesToMe] = useState([])
     // const messagesFromMe = [];
     // const messagesToMe = [];
-
-    // const fetchMessage = async () => {
-    //     const resp = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/users/me', {
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${token}`
-    //         }
-    //     })
-    //     const result = await resp.json();
-    //     setMessageArr([])
-    //     if (result) {
-    //         setMessageArr(result.data.messages)
-    //         console.log(messageArr)
-    //         setFilterByAuthor(messageArr.filter(res => res.fromUser.username === username ? messagesFromMe.push(res) : messagesToMe.push(res)))
-    //     }
-    // }
 
     useEffect(() => {
         setFilterByAuthor(messagesArray.data.messages.filter(res => res.fromUser.username === username ? messagesFromMe.push(res) : messagesToMe.push(res)))

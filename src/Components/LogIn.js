@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import './login.css';
 import Header from './Header';
 import { Link } from 'react-router-dom';
-// import WrongAlert from './WrongAlert';
 
 
 const LogIn = ({ isLoggedIn, setIsLoggedIn, setToken, username, setUsername, setMessagesArray }) => {
 
     const [password, setPassword] = useState('');
-    const [myPosts, setMyPosts] = useState([]);
     const [info, setInfo] = useState(true);
 
     const loggedInAlert = () => {
@@ -44,13 +42,10 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, setToken, username, setUsername, set
                 })
             })
             const dataFromApi = await resp.json()
-            console.log(dataFromApi)
-
             if (dataFromApi.data === null) {
                 setInfo(false)
             }
             // setToken does not run I had to use the data withough setting 
-
             if (dataFromApi.success) {
                 setIsLoggedIn(true)
                 setToken(dataFromApi?.data?.token)
@@ -64,7 +59,6 @@ const LogIn = ({ isLoggedIn, setIsLoggedIn, setToken, username, setUsername, set
                     .then(result => {
 
                         if (result) {
-                            setMyPosts(result.data.posts)
                             setMessagesArray(result)
                         }
                     })

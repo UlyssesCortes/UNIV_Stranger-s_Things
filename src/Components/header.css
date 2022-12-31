@@ -1,17 +1,14 @@
 .nav {
     display: flex;
-    /* position: fixed; */
     width: 100%;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.5);
-    /* opacity: 0.7; */
     backdrop-filter: blur(2px);
     height: 60px;
     color: #000000;
     font-weight: bold;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
-    /* z-index: 1; */
 }
 
 .AppName {

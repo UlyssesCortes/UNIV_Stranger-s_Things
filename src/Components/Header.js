@@ -20,8 +20,7 @@ const Header = ({ isLoggedIn }) => {
             <main>
                 <div className='bulb'></div>
                 <div className='bulb2'></div>
-                <div ><div className='bulb3'></div></div>
-                <div className='bulb4'></div>
+                <div className='bulb3'></div>
                 <div className='bulb5'></div>
             </main>
         </>

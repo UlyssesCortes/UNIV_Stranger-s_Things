@@ -14,7 +14,6 @@
     width: 25em;
     border-radius: 1%;
     backdrop-filter: blur(100px);
-    /* position: relative; */
 }
 
 .description {

@@ -33,20 +33,17 @@ const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
             })
         }).then(response => response.json())
             .then(result => {
-                console.log(result);
                 if (result.success === true) {
                     setPostAdded(true)
                 } else {
                     setPostAdded(false)
                 }
-                console.log(title)
             })
             .catch(console.error);
     }
 
     if (!location) {
         setLocation(defaultLocation)
-        console.log("default location", location)
     }
 
     const handleChangeTitle = (event) => {

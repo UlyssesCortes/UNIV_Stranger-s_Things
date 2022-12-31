@@ -10,13 +10,13 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [message, setMessage] = useState("")
     const [isMyPost, setIsMyPost] = useState(false)
+    const [currPostId, setCurrPostId] = useState("")
 
     useEffect(() => {
         const fetchPosts = async () => {
             const resp = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts')
             const dataFromApi = await resp.json();
             setPosts(dataFromApi.data.posts);
-            console.log(posts)
         }
         fetchPosts()
     }, [])
@@ -26,10 +26,8 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
             setMySearch(event.target.value.toLowerCase())
         }
     }
+
     const sendMessageContainer = (post) => {
-        const messageHandler = (event) => {
-            setMessage(event.target.value)
-        }
 
         const onSubmitMessage = (event) => {
             event.preventDefault()
@@ -53,11 +51,15 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
             setIsOpen(false)
         }
 
+        const messageHandler = (event) => {
+            setMessage(event.target.value)
+        }
+
         return (
             <>
-                {(!isMyPost &&
+                {(!isMyPost && currPostId === post._id &&
                     <form onSubmit={onSubmitMessage} className="sendMesForm">
-                        <h4>Send Message to: {post.author.username} </h4>
+                        <h4>Message to: {post.author.username} </h4>
                         <input type="text" value={message} onChange={messageHandler} placeholder='Title*'></input>
                         <button className='sendMessageBtn' type='submit'>SEND MESSAGE</button>
                     </form>
@@ -67,8 +69,9 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
     }
 
     const mapPosts = (arr) => {
+
         const handleDeleteBtn = (post) => {
-            console.log(post)
+
             fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts/${post._id}`, {
                 method: "DELETE",
                 headers: {
@@ -90,6 +93,8 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
         }
 
         const sendMesBtn = (post) => {
+            setCurrPostId(post._id)
+
             if (post.author.username === username) {
                 setIsMyPost(true)
             } else {
@@ -115,7 +120,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
                         )}
                         <div style={{ display: "none" }}>{post.title.toLowerCase().includes(mySearch) || post.author.username.toLowerCase().includes(mySearch) ? posts.splice(posts.indexOf(post), 1) && posts.unshift(post) : null}</div>
                         <div className='sendMesForm'>
-                            {isOpen && sendMessageContainer(post)}
+                            {!isMyPost && isOpen && sendMessageContainer(post)}
                         </div>
                     </div>)
             }
@@ -126,13 +131,6 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
         return (
             <div class="alert">
                 <strong>Post Deleated!</strong>
-            </div>
-        )
-    }
-    const notYourPostAlert = () => {
-        return (
-            <div class="alert">
-                <strong>Not your post!</strong>
             </div>
         )
     }

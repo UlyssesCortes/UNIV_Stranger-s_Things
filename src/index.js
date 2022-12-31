@@ -14,7 +14,6 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [token, setToken] = useState('');
   const [username, setUsername] = useState('');
-  const [myData, setMyData] = useState({})
   const [messagesArray, setMessagesArray] = useState([])
 
   return (
@@ -35,7 +34,6 @@ const App = () => {
               setIsLoggedIn={setIsLoggedIn}
               token={token}
               setToken={setToken}
-              myData={myData}
               username={username} />}
           />
           <Route
@@ -45,7 +43,6 @@ const App = () => {
               setIsLoggedIn={setIsLoggedIn}
               setToken={setToken} token={token}
               username={username} setUsername={setUsername}
-              setMyData={setMyData} myData={myData}
               setMessagesArray={setMessagesArray} />}
           />
           <Route
@@ -54,7 +51,6 @@ const App = () => {
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               setToken={setToken} token={token}
               username={username} setUsername={setUsername}
-              setMyData={setMyData} myData={myData}
               setMessagesArray={setMessagesArray} />}
           />
           <Route
@@ -62,7 +58,6 @@ const App = () => {
             element={<Profile
               isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
               token={token}
-              myData={myData} setMyData={setMyData}
               username={username}
               messagesArray={messagesArray} setMessagesArray={setMessagesArray} />}
           />
