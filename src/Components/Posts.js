@@ -137,12 +137,15 @@ const Posts = ({ isLoggedIn, setIsLoggedIn, setToken, token, username }) => {
 
     return <>
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setToken={setToken} />
-        <div className='formSection'>
-            <h1 className='title'>Posts: </h1>
-            <form className='searchForm'>
-                <input type='text' placeholder='Search... ' onChange={handleTitleSearch}></input>
-                {isLoggedIn && <button><Link to='/createPost' className="links">Add Post</Link></button>}
-            </form>
+        <div className='formSection2'>
+            <section className='sectionForm'>
+                <h1 className='titlePost '>Posts: </h1>
+                <form className='searchForm'>
+                    <input type='text' placeholder='Search... ' onChange={handleTitleSearch}></input>
+                    {isLoggedIn && <button className='addPostBtn'><Link to='/createPost' className="links">Add Post</Link></button>}
+                </form>
+            </section>
+
         </div>
 
         <div className='postCardBox'>

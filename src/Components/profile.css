@@ -48,7 +48,9 @@
 }
 
 .title {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     margin: 2em;
     font-size: 24px;
     font-family: 'Work Sans', sans-serif;

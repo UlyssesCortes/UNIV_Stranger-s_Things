@@ -7,12 +7,12 @@
 .searchForm {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
     flex-grow: 2;
-    margin: 1em;
+    /* margin: 1em; */
 }
 
 .searchForm input {
@@ -24,31 +24,38 @@
 }
 
 .searchForm button {
-    display: flex;
-    justify-content: center;
     align-items: center;
     width: 100px;
     height: 50px;
+    /* width: 5em; */
     padding: 5px;
-    background-color: rgb(241, 239, 239);
+    background-color: rgb(250, 247, 247);
 }
 
 .searchForm button:hover {
     background-color: transparent;
 }
 
-.formSection {
+.formSection2 {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-
+    justify-content: center;
+    align-content: center;
 }
 
-.title {
-    font-family: 'Dosis', sans-serif;
-    font-family: 'Merriweather', serif;
-    font-family: 'Montserrat', sans-serif;
-    margin-top: 5px;
+.sectionForm {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    gap: 5px;
+}
+
+.titlePost {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 1.4em;
+    text-transform: uppercase;
 }
 
 body {

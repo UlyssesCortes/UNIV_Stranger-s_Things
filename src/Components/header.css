@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .nav {
     display: flex;
     width: 100%;
@@ -50,4 +59,70 @@
 .links:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+.mobileNav {
+    display: flex;
+    justify-content: center;
+    height: 35vh;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+    opacity: 95%;
+    animation: scale 1s forwards;
+}
+
+
+.mobileNavUndo {
+    display: flex;
+    justify-content: center;
+    height: 35vh;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+    opacity: 95%;
+    animation: unScale 1s forwards;
+}
+
+.listBoxMobile {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    font-size: 38px;
+    gap: 25px;
+    list-style: none;
+    text-align: center;
+}
+
+.mobileLInks {
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    color: #0e2431;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+}
+
+.mobileLInks:hover {
+    font-weight: bolder;
+}
+
+@keyframes scale {
+    0% {
+        transform: translateY(-110%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes unScale {
+    0% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(-120%);
+    }
 }

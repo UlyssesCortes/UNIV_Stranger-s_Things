@@ -41,6 +41,7 @@
     flex-wrap: wrap;
     padding: 30px;
     gap: 25px;
+    min-width: 28em;
 }
 
 .messageBtn {
