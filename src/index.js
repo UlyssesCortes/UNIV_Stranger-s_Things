@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
+import 'animate.css';
 import LogIn from './Components/LogIn';
 import Register from './Components/Register';
 import Posts from './Components/Posts';

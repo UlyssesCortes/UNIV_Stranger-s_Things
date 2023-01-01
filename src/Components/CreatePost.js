@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import './createPost.css'
+import 'animate.css';
+
 
 const CreatePost = ({ isLoggedIn, setIsLoggedIn, token }) => {
 

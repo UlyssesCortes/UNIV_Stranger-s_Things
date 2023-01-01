@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { Twirl as Hamburger } from 'hamburger-react'
 import './header.css'
+import 'animate.css';
+
 
 const Header = ({ isLoggedIn }) => {
 
@@ -23,8 +25,6 @@ const Header = ({ isLoggedIn }) => {
     }, []);
 
     const hambHeader = () => {
-        console.log("Open? ", isOpen)
-
         setIsOpen(!isOpen)
     }
 
